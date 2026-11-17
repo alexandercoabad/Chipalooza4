@@ -54,8 +54,8 @@ cd v2/sim && python3 smoke_test.py      # expects about 25.5 dB
 | `run_rest.py`, `rerun30.py`, `rerun50.py`, `rerun100.py` | Re-runs for coupling-capacitor bank changes (the bank is `HPC` in `v2.py`; the current bank is 10/30/50 pF) |
 
 Scripts write `.pkl`/`.json` result files into the working directory; these are not committed (they can be regenerated).
-`pvt.py`/`analyze_pvt.py` were run in an earlier session and were not re-run when this repository was assembled.
-Checked in this repository layout: `smoke_test.py`, `make_plots.py`, `rerun30.py`, `v1/sim/v1_overlay.py`, `v1/sim/v1val2.py`.
+`pvt.py`/`analyze_pvt.py` were re-run in this repository layout (480 runs, 0 failed, about 7 minutes on 2 cores) and reproduce the proposal numbers: gain error -2.06/+1.11 dB, step 1.62-2.24 dB (monotonic at every corner), Zin 4.89-29.42 kOhm, bias 1.315-1.987 V, Idd 0.23-0.93 mA, upper corner min 0.82 MHz. Output: `results/pvt_summary.txt`. `pvt.py` uses a 1 uF coupling capacitor, so it does not exercise the 10/30/50 pF bank.
+Also checked in this repository layout: `smoke_test.py`, `make_plots.py`, `rerun30.py`, `v1/sim/v1_overlay.py`, `v1/sim/v1val2.py`.
 The plots show pre-layout typical-corner or stated-corner results; the 100 kHz point in the noise plot is the spec point, and the settling plot is for code 0.
 
 ## Reproducing the v1 comparison (`v1/sim/`)
